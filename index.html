@@ -1,0 +1,118 @@
+<!--  Зображення бажано webp -->
+<!--  box-sizing: content-box;  -->
+<!--  layer  -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./assets/styles/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <title>Hotel Website</title>
+  </head>
+  <body>
+    <header>
+      <main-header class="main-header">
+        <h1>LOGO</h1>
+        <nav class="main-nav">
+          <ul class="header-list">
+            <li><a href="#">Find a Property</a></li>
+            <li><a href="#">Share Stories</a></li>
+            <li><a href="#">Rental Guides</a></li>
+            <li><a href="#">Download mobile app</a></li>
+          </ul>
+        </nav>
+        <a href="/request-a-quote" class="header-btn">Become a host</a>
+
+        <div class="user-menu-container">
+          <button class="user-button" onclick="toggleMenu()">
+            <span class="menu-icon"
+              ><img
+                src="C:\Users\Андрей\Desktop\pp\assets\images\gg_menu.webp"
+                alt=""
+            /></span>
+            <span class="user-icon"
+              ><img
+                src="C:\Users\Андрей\Desktop\pp\assets\images\bx_bxs-user-circle.webp"
+                alt=""
+            /></span>
+          </button>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <a href="#">Sign Up</a>
+            <a href="#">Login</a>
+            <a href="#">Help Center</a>
+          </div>
+        </div>
+      </main-header>
+      <p id="banner">BANNER</p>
+      <div class="search-container">
+        <nav class="search-nav">
+          <h2 class="search-title">FIND</h2>
+          <ul class="nav-tabs">
+            <li class="active">Rooms</li>
+            <li>Flats</li>
+            <li>Hostels</li>
+            <li>Villas</li>
+          </ul>
+        </nav>
+        <form class="search-form">
+          <div class="form-group">
+            <label>Location</label>
+            <input type="text" placeholder="Which city do you prefer?" />
+          </div>
+          <div class="form-group">
+            <label>Check In</label>
+            <input type="text" placeholder="Add Dates" />
+          </div>
+          <div class="form-group">
+            <label>Check Out</label>
+            <input type="text" placeholder="Add Dates" />
+          </div>
+          <div class="form-group">
+            <label>Guests</label>
+            <input type="text" placeholder="Add Guests" />
+          </div>
+          <button type="submit" class="search-btn">🔍</button>
+        </form>
+      </div>
+    </header>
+    <main>
+      <section class="latest section"></section>
+      <section class="nearby section"></section>
+      <section class="top rated section"></section>
+      <section class="hosting info section"></section>
+      <section class="featured section"></section>
+      <section class="browse section"></section>
+      <section class="blog section"></section>
+      <section class="mobile app section"></section>
+      <section class="about section"></section>
+      <section class="newsletter section"></section>
+    </main>
+    <footer class="main-footer"></footer>
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("dropdownMenu");
+        menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+      }
+
+      document.addEventListener("click", function (event) {
+        const isClickInside = document
+          .querySelector(".user-menu-container")
+          .contains(event.target);
+        if (!isClickInside) {
+          document.getElementById("dropdownMenu").style.display = "none";
+        }
+      });
+      document.querySelectorAll(".nav-tabs li").forEach((tab) => {
+        tab.addEventListener("click", () => {
+          document.querySelectorAll(".nav-tabs li").forEach((t) => {
+            t.classList.remove("active");
+          });
+          tab.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
